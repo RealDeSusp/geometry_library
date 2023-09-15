@@ -26,9 +26,9 @@ class Triangle(Shape):
         self.side2 = side2
         self.side3 = side3
         if (side1 + side2 <= side3) or (side1 + side3 <= side2) or (side2 + side3 <= side1):
-            raise ValueError("Треугольник с такими сторонами невозможен")
+            raise ValueError("a triangle with such sides is impossible")
         if self.side1 <= 0 or self.side2 <= 0 or self.side3 <= 0:
-            raise ValueError("Side lengths must be positive numbers")
+            raise ValueError("side lengths must be positive numbers")
 
     def calculate_area(self):
         # semi-perimeter of a triangle
