@@ -30,9 +30,14 @@ class Triangle(Shape):
         if self.side1 <= 0 or self.side2 <= 0 or self.side3 <= 0:
             raise ValueError("Side lengths must be positive numbers")
 
-        # Semi-perimeter of a triangle
+        # semi-perimeter of a triangle
         s = (self.side1 + self.side2 + self.side3) / 2
 
         # Heron's formula for calculating square
         area = (s * (s - self.side1) * (s - self.side2) * (s - self.side3)) ** 0.5
         return area
+
+    def is_right_triangle(self):
+        # checking if a triangle is right-angled
+        sides = sorted([self.side1, self.side2, self.side3])
+        return sides[0] ** 2 + sides[1] ** 2 == sides[2] ** 2
