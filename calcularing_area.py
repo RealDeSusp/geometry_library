@@ -13,10 +13,10 @@ class Shape(ABC):
 class Circle(Shape):
     def __init__(self, radius):
         self.radius = radius
-
-    def calculate_area(self):
         if self.radius < 0:
             raise ValueError("radius cannot be negative")
+
+    def calculate_area(self):
         return math.pi * self.radius ** 2
 
 
@@ -25,11 +25,12 @@ class Triangle(Shape):
         self.side1 = side1
         self.side2 = side2
         self.side3 = side3
-
-    def calculate_area(self):
+        if (side1 + side2 <= side3) or (side1 + side3 <= side2) or (side2 + side3 <= side1):
+            raise ValueError("Треугольник с такими сторонами невозможен")
         if self.side1 <= 0 or self.side2 <= 0 or self.side3 <= 0:
             raise ValueError("Side lengths must be positive numbers")
 
+    def calculate_area(self):
         # semi-perimeter of a triangle
         s = (self.side1 + self.side2 + self.side3) / 2
 
