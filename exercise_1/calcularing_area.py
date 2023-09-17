@@ -1,18 +1,23 @@
 # 15.09.2023 Mikhail Porokhnya
 
+# file that contains the main algorithm of the library
+
 from abc import ABC, abstractmethod
 import math
 
 
+# creating an abstract class
 class Shape(ABC):
     @abstractmethod
     def calculate_area(self):
         pass
 
 
+# creating a circle class
 class Circle(Shape):
     def __init__(self, radius):
         self.radius = radius
+        # negative radius check
         if self.radius < 0:
             raise ValueError("radius cannot be negative")
 
@@ -20,11 +25,13 @@ class Circle(Shape):
         return math.pi * self.radius ** 2
 
 
+# create a triangle class
 class Triangle(Shape):
     def __init__(self, side1, side2, side3):
         self.side1 = side1
         self.side2 = side2
         self.side3 = side3
+        # impossible triangle check
         if (side1 + side2 <= side3) or (side1 + side3 <= side2) or (side2 + side3 <= side1):
             raise ValueError("a triangle with such sides is impossible")
         if self.side1 <= 0 or self.side2 <= 0 or self.side3 <= 0:

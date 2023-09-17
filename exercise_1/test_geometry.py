@@ -1,5 +1,7 @@
 # 15.09.2023 Mikhail Porokhnya
 
+# file containing unit tests
+
 import unittest
 from calcularing_area import Circle, Triangle
 
